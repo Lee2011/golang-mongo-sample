@@ -84,14 +84,14 @@ func GetResult() string {
 	}
 
 	// Insert Datas
-	err = c.Insert(&Person{Name: "Ale", Phone: "+55 53 1234 4321", Timestamp: time.Now()},
+	err = c.Insert(&Person{Name: "Lee", Phone: "+55 53 1234 4321", Timestamp: time.Now()},
 		&Person{Name: "Cla", Phone: "+66 33 1234 5678", Timestamp: time.Now()})
 	if err != nil {
 		panic(err)
 	}
 
 	result := Person{}
-	err = c.Find(bson.M{"name": "Ale"}).Select(bson.M{"phone": 0}).One(&result)
+	err = c.Find(bson.M{"name": "Lee"}).Select(bson.M{"phone": 0}).One(&result)
 	if err != nil {
 		panic(err)
 	}
